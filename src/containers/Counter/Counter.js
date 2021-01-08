@@ -26,6 +26,8 @@ class Counter extends Component {
             case 'sub':
                 this.setState( ( prevState ) => { return { counter: prevState.counter - value } } )
                 break;
+            default:
+                break;
         }
     }
 
@@ -50,8 +52,8 @@ class Counter extends Component {
 const mapStateToProps = state => {
 
     return {
-        ctr : state.counter,
-        res : state.results
+        ctr : state.ctr.counter,
+        res : state.res.results
     }
 
 }
@@ -63,7 +65,7 @@ const mapDispatchToProps = dispatch => {
         onDecrementCounter: () => dispatch({type: actionTypes.DECREMENT}),
         onAdd:              () => dispatch({type: actionTypes.ADD,      value:5}),
         onSubtract:         () => dispatch({type: actionTypes.SUBTRACT, value:5}),
-        onStoreResult:      () => dispatch({type: actionTypes. STORE}),
+        onStoreResult:      () => dispatch({type: actionTypes.STORE}),
         onDeleteResult:     (id) => dispatch({type: actionTypes.DELETE, delId: id})
     }
 }
